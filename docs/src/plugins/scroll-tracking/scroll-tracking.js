@@ -1,4 +1,5 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import { identifyUser, trackEvent } from '../segment/analytics-helpers';
 
 let isScrollTrackingInitialized = false;
 
@@ -172,9 +173,11 @@ function setupElementTracking(config) {
           setTimeout(() => {
             const properties = getElementProperties(entry.target, selectorConfig.properties || {});
 
-            if (window.analytics && typeof window.analytics.track === 'function') {
-              window.analytics.track(selectorConfig.eventName, properties);
-            }
+            // Identify user before tracking
+            identifyUser();
+
+            // Track event with common properties
+            trackEvent(selectorConfig.eventName, properties);
           }, delay);
         }
       }

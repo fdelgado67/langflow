@@ -36,56 +36,6 @@ const config = {
     },
     ...(isProduction
       ? [
-          // IBM Analytics and TrustArc Configuration
-          {
-            tagName: "script",
-            attributes: {},
-            innerHTML: `
-              window._ibmAnalytics = {
-                "settings": {
-                  "name": "DataStax",
-                  "tealiumProfileName": "ibm-subsidiary",
-                },
-                "trustarc": {
-                  "privacyPolicyLink": "https://ibm.com/privacy"
-                },
-                "digitalData.page.services.google.enabled": true
-              };
-              window.digitalData = {
-                "page": {
-                  "pageInfo": {
-                    "ibm": {
-                      "siteId": "IBM_" + _ibmAnalytics.settings.name,
-                    },
-                    segment: {
-                      enabled: true,
-                      env: 'prod',
-                      key: '${process.env.SEGMENT_PUBLIC_WRITE_KEY || ''}',
-                      coremetrics: false,
-                      carbonComponentEvents: false
-                    }
-                  },
-                  "category": {
-                    "primaryCategory": "PC230"
-                  }
-                },
-                "commonProperties": {
-                  "productTitle": "IBM Elite Support for Langflow",
-                  "productCode": "5900BUB",
-                  "productCodeType": "WWPC",
-                  "ut30": "30AS5"
-                }
-              };
-            `,
-          },
-          // IBM Common Stats Script
-          {
-            tagName: "script",
-            attributes: {
-              src: "//1.www.s81c.com/common/stats/ibm-common.js",
-              async: "true",
-            },
-          },
           // Google Consent Mode - Set defaults before Google tags load
           {
             tagName: "script",

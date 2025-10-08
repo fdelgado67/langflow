@@ -1,4 +1,5 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import { identifyUser, trackEvent } from './analytics-helpers';
 
 let isDataAttributeTrackingInitialized = false;
 
@@ -65,12 +66,11 @@ function initializeDataAttributeTracking() {
       }
     });
 
-    // Track the event
-    if (window.analytics && typeof window.analytics.track === 'function') {
-      window.analytics.track(eventName, properties);
-    } else {
-      console.warn('Analytics not available for tracking:', eventName, properties);
-    }
+    // Identify user before tracking
+    identifyUser();
+
+    // Track the event with common properties
+    trackEvent(eventName, properties);
   };
 
   // Remove existing listener if it exists
