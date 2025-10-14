@@ -10,7 +10,7 @@ export function getCommonProperties() {
     productTitle: window.digitalData.commonProperties.productTitle,
     productCode: window.digitalData.commonProperties.productCode,
     productCodeType: window.digitalData.commonProperties.productCodeType,
-    ut30: window.digitalData.commonProperties.ut30,
+    UT30: window.digitalData.commonProperties.UT30,
     instanceId: window.digitalData.commonProperties.instanceId,
     subscriptionId: window.digitalData.commonProperties.subscriptionId,
     productPlanName: window.digitalData.commonProperties.productPlanName,

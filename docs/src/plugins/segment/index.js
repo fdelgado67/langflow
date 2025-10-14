@@ -59,7 +59,7 @@ function pluginSegment(context, options = {}) {
                   "productTitle": "IBM Elite Support for Langflow",
                   "productCode": "5900BUB",
                   "productCodeType": "WWPC",
-                  "ut30": "30AS5",
+                  "UT30": "30AS5",
                   "instanceId": "docs-site",
                   "subscriptionId": "public-access",
                   "productPlanName": "Public",

@@ -150,35 +150,6 @@ const config = {
     ["docusaurus-node-polyfills", { excludeAliases: ["console"] }],
     "docusaurus-plugin-image-zoom",
     ["./src/plugins/segment", { segmentPublicWriteKey: process.env.SEGMENT_PUBLIC_WRITE_KEY, allowedInDev: true }],
-    ["./src/plugins/scroll-tracking", {
-      segmentPublicWriteKey: process.env.SEGMENT_PUBLIC_WRITE_KEY,
-      allowedInDev: true,
-      selectors: [
-        {
-          selector: 'h1, h2, h3, h4, h5, h6',
-          eventName: 'UI Interaction',
-          properties: {
-            action: 'viewed',
-            channel: 'docs',
-            namespace: 'content',
-            elementId: 'heading',
-            platformTitle: 'Langflow'
-          }
-        },
-        {
-          selector: '.ch-codeblock',
-          eventName: 'UI Interaction',
-          properties: {
-            action: 'viewed',
-            channel: 'docs',
-            namespace: 'content',
-            elementId: 'codeblock',
-            language: 'helper:codeLanguage',
-            platformTitle: 'Langflow'
-          }
-        }
-      ]
-    }],
     [
       "@docusaurus/plugin-client-redirects",
       {
